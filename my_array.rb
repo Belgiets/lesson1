@@ -5,59 +5,80 @@ class MyArray
     @array = arr
   end
 
-  def size
-    # TODO
+  def size()
+    @array.length
   end
 
-  def reverse
-    # TODO
+  def reverse()
+    @array.reverse!
   end
 
-  def max
-    # TODO
+  def max()
+    @array.max
   end
 
-  def min
-    # TODO
+  def min()
+    @array.min
   end
 
-  def desc
-    # TODO
+  def desc()
+    @array.sort! { |a, b| b <=> a}
   end
 
-  def asc
-    # TODO
+  def asc()
+    @array.sort! { |a, b| a <=> b}
   end
 
-  def odd
-    # TODO
+  def odd()
+    output = []
+    @array.each do |x| 
+        if ((x%2) != 0)
+            output << x
+        end
+    end 
+    output
   end
 
-  def multiple_to_three
-    # TODO
+  def multiple_to_three()
+    output = []
+    @array.each do |x| 
+        if ((x%3) == 0)
+            output << x
+        end
+    end 
+    output
   end
 
   def uniq
-    # TODO
+    @array.uniq!
   end
 
   def devide_on_ten
-    # TODO
+    output = []
+    @array.each { |x| output << x.fdiv(10) }
+    output
   end
 
   def chars
-    # TODO
+    ab = (:a..:z).to_a
+    @array.collect { |x| x = ab[x-1] }
   end
 
   def switch
-    # TODO
+    i_min = @array.index(@array.min)
+    i_max = @array.index(@array.max)
+    max = @array[i_min]
+    @array[i_min] = @array[i_max]
+    @array[i_max] = max
+    @array
   end
 
   def before_min
-    # TODO
+    i_min = @array.index(@array.min)
+    @array[0...i_min]
   end
 
   def three_smallest
-    # TODO
+    @array.sort.uniq[0..2]
   end
 end
