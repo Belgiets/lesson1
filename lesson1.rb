@@ -9,17 +9,15 @@ class Lesson1
   end
 
   def age(birthday)
-    if birthday.is_a?(String)
-      birth_date = DateTime.strptime(birthday, '%d/%m/%Y').to_time.to_i
-      curnt_date = Time.now.to_time.to_i
-      age = curnt_date - birth_date
-      p "I live #{age/(365*24*3600)} years or #{age/(24*3600)} days, or #{age/3600} hours, or #{age/(60)} minutes, or #{age} seconds"
-    else
-      p 'Invalid Date Format'
-    end
+    return 'Invalid Date Format' unless birthday
+    age = Time.now.to_time.to_i - Date.parse(birthday).to_time.to_i
+    "I live #{age / (365 * 24 * 3600)} years or #{age / (24 * 3600)} days,\
+    or #{age / 3600} hours, or #{age / (60)} minutes, or #{age} seconds"
   end
 
   def name
-    'Hello ' << gets.chomp << ' Super Man!'
+    output = ''
+    3.times { output += ' ' << gets.chomp }
+    "Hello#{output}!"
   end
 end

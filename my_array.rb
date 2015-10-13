@@ -5,47 +5,39 @@ class MyArray
     @array = arr
   end
 
-  def size()
+  def size
     @array.length
   end
 
-  def reverse()
+  def reverse
     @array.reverse!
   end
 
-  def max()
+  def max
     @array.max
   end
 
-  def min()
+  def min
     @array.min
   end
 
-  def desc()
-    @array.sort! { |a, b| b <=> a}
+  def desc
+    @array.sort! { |a, b| b <=> a }
   end
 
-  def asc()
-    @array.sort! { |a, b| a <=> b}
+  def asc
+    @array.sort! { |a, b| a <=> b }
   end
 
-  def odd()
+  def odd
     output = []
-    @array.each do |x| 
-        if ((x%2) != 0)
-            output << x
-        end
-    end 
+    @array.each { |x| output << x if x.odd? }
     output
   end
 
-  def multiple_to_three()
+  def multiple_to_three
     output = []
-    @array.each do |x| 
-        if ((x%3) == 0)
-            output << x
-        end
-    end 
+    @array.each { |x| output << x if ((x % 3) == 0) }
     output
   end
 
@@ -61,7 +53,7 @@ class MyArray
 
   def chars
     ab = (:a..:z).to_a
-    @array.collect { |x| x = ab[x-1] }
+    @array.collect { |x| ab[x - 1] }
   end
 
   def switch
